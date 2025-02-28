@@ -1,0 +1,14 @@
+/stripe/config.toml
+/asciinema/install-id
+/htop/htoprc
+/gh/hosts.yml
+/configstore
+/totp-cli
+/borg
+/gh/hosts.yml
+/zed/**/*
+/raycast/extensions
+/btop
+/chezmoi/chezmoistate.boltdb
+/fish/completions/bun.fish
+/fish/fish_variables
