@@ -1,0 +1,7 @@
+#!/usr/bin/env -S mise exec ruby@latest -- /bin/sh
+
+if ! gem list -i -e referral >/dev/null; then
+	gem install -q referral
+fi
+
+referral $@

@@ -1,0 +1,17 @@
+[tools]
+usage = "latest"
+ruby = "latest"
+rust = "latest"
+python = "latest"
+bun = "latest"
+"cargo:ivm" = "latest"
+erlang = "27"
+elixir = "1.18.0"
+
+[settings]
+experimental = true
+
+[env]
+OVERMIND_SKIP_ENV = "true"
+OVERMIND_PROCFILE = "Procfile.dev"
+OVERMIND_NO_PORT = 1

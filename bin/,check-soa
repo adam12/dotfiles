@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+##
+# Check multiple domains at once
+#	cat domains | xargs -t -n 1 ~/bin/check-soa
+
+domain=$1
+ns1=ns1.mediadrive.ca
+ns2=ns2.mediadrive.ca
+
+if [ -z "$domain" ]; then
+	echo "Missing domain argument" >&2
+	echo "Usage: $0 <domain>" >&2
+	exit 1
+fi
+
+if ! diff <(dig +short -t soa "$domain" @$ns1 | cut -f 3 -d ' ') <(dig +short -t soa "$domain" @$ns2 | cut -f 3 -d ' '); then
+	echo "$domain mismatch SOA versions"
+	exit 1
+fi
+
+exit 0

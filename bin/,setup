@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Always show hidden files
+defaults write com.apple.finder AppleShowAllFiles -boolean true
+
+# Faster key repeat
+defaults write -g InitialKeyRepeat -int 20 # 10 is too extreme
+defaults write -g KeyRepeat -int 2 # 1 is too extreme
+
+# Disable press-and-hold which allows you to switch keys if you hold it too long
+defaults write -g ApplePressAndHoldEnabled -bool false

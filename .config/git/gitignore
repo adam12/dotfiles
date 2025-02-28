@@ -1,0 +1,3 @@
+# Global gitignore setting
+.DS_Store
+.mise.local.toml

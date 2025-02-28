@@ -1,0 +1,7 @@
+#!/usr/bin/env -S mise exec ruby@latest -- /bin/sh
+
+if ! gem list -i -e kamal >/dev/null; then
+	gem install -q kamal
+fi
+
+kamal $@
