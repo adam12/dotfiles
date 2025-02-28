@@ -4,6 +4,7 @@ mise activate fish | source
 
 set -U --export EDITOR nvim
 set -U --export THOR_MERGE "nvim -d"
+set -U --export RUBY_YJIT_ENABLE 1
 
 alias vim="nvim"
 alias whois="$(brew --prefix whois)/bin/whois"
