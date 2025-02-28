@@ -19,7 +19,7 @@ fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
 
 # Configure local::lib for Perl
-eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
+#eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
 
 if status is-interactive
     # Easily jump to projects and open nvim
