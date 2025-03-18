@@ -7,6 +7,7 @@ bun = "latest"
 "cargo:ivm" = "latest"
 erlang = "27"
 elixir = "1.18.0"
+yarn = "latest"
 
 [settings]
 experimental = true
