@@ -24,6 +24,12 @@ vim.api.nvim_create_autocmd("FileType", {
   group = group
 })
 
+vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
+  pattern = ".env*",
+  command = "setl ft=sh",
+  group = group
+})
+
 -- Start commits in insert mode
 -- vim.api.nvim_create_autocmd("FileType", {
 --   pattern = "gitcommit",
