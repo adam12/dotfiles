@@ -27,6 +27,8 @@ return { -- LSP Support
     })
 
     local lspconfig = require('lspconfig')
+    local configs = require('lspconfig.configs')
+
     -- lspconfig.ruby_lsp.setup({
     --   cmd = { 'ruby-lsp', '--debug', },
     --   init_options = {
@@ -42,6 +44,24 @@ return { -- LSP Support
 
     -- lspconfig.solargraph.setup({})
     -- lspconfig.standardrb.setup({})
+
+    local unpoly_lsp_exe = os.getenv('HOME') .. '/go/bin/unpoly-lsp'
+    if vim.fn.executable(unpoly_lsp_exe) == 1 then
+      if not configs.unpoly_lsp then
+        configs.unpoly_lsp = {
+          default_config = {
+            cmd = {unpoly_lsp_exe},
+            file_types = {'eruby', 'html'},
+            root_dir = function(fname)
+              return lspconfig.util.find_git_ancestor(fname)
+            end,
+            settings = {},
+          }
+        }
+      end
+
+      lspconfig.unpoly_lsp.setup({})
+    end
 
     require('mason-lspconfig').setup_handlers {
       function(server_name) -- default handler
