@@ -142,11 +142,6 @@ vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', { expr = true })
 -- Configure popup / diagnostic messages
 vim.diagnostic.config({
   virtual_text = false, -- Disables the virtual text error message at the end of the line
-  float = {
-    header = false,
-    border = 'rounded',
-    focusable = true, -- is this a real option?
-  },
 })
 
 -- Set popup border to rounded
