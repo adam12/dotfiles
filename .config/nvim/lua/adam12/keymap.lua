@@ -24,7 +24,7 @@ vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- local client = vim.lsp.get_client_by_id(args.data.client_id)
 
     vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostics', buffer = args.buf })
 
@@ -33,9 +33,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementation', buffer = args.buf })
     vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, { desc = 'Go to type definition', buffer = args.buf })
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Show references', buffer = args.buf })
-
-    -- if client.server_capabilities.hoverProvider then
-    --   vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
-    -- end
   end
  })
