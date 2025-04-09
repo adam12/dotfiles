@@ -1,7 +1,7 @@
 local group = vim.api.nvim_create_augroup('autocommands.lua', { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "Steepfile",
+  pattern = {"Steepfile", "*.jbuilder"},
   command = "setl ft=ruby",
   group = group
 })
@@ -15,12 +15,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = { "*.mote" },
   command = "setl ft=mote",
-  group = group
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "*.jbuilder",
-  command = "setl ft=ruby",
   group = group
 })
 
