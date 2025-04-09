@@ -36,6 +36,9 @@ vim.opt.wrap = false
 -- Set completeopt to have a better completion experience
 -- vim.opt.completeopt = 'menuone,noselect'
 
+-- Set popup border to rounded
+vim.opt.winborder = 'rounded'
+
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes'
 
@@ -143,6 +146,3 @@ vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', { expr = true })
 vim.diagnostic.config({
   virtual_text = false, -- Disables the virtual text error message at the end of the line
 })
-
--- Set popup border to rounded
-vim.o.winborder = 'rounded'
