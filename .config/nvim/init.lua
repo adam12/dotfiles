@@ -148,3 +148,6 @@ vim.diagnostic.config({
     focusable = true, -- is this a real option?
   },
 })
+
+-- Set popup border to rounded
+vim.o.winborder = 'rounded'
