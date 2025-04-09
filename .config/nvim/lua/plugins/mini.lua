@@ -6,10 +6,10 @@ return {
     -- Quick-moving [ ] bracket commands
     require('mini.bracketed').setup()
 
+    require('mini.icons').setup()
+
     -- Nicer status line
-    require('mini.statusline').setup({
-      use_icons = false
-    })
+    require('mini.statusline').setup()
 
     -- Quickpick menu
     require('mini.pick').setup()

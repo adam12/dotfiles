@@ -4,6 +4,7 @@ return {
     keymaps = {
       ['<C-p>'] = false,
     },
+    columns = {}, -- Remove 'icon'
   },
   config = function(_, opts)
     require('oil').setup(opts)
