@@ -16,3 +16,4 @@ experimental = true
 OVERMIND_SKIP_ENV = "true"
 OVERMIND_PROCFILE = "Procfile.dev"
 OVERMIND_NO_PORT = 1
+PGGSSENCMODE = "disable"
