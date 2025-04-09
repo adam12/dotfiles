@@ -46,24 +46,6 @@ vim.wo.signcolumn = 'yes'
 -- vim.cmd [[colorscheme mellow]]
 vim.cmd [[colorscheme catppuccin-mocha]]
 
--- Make <space> leader function more sane
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap <Esc> to exit terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Allow blocks of lines to be moved by J and K in visual mode
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-
--- Yank to clipboard
--- vim.keymap.set('n', '<leader>y', '"+y', { desc = 'Yank to OS clipboard' })
--- vim.keymap.set('v', '<leader>y', '"+y', { desc = 'Yank to OS clipboard' })
-
 -- Don't highlight previous search pattern
 -- vim.opt.hlsearch = false
 
