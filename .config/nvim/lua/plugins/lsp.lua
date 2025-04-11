@@ -51,7 +51,7 @@ return { -- LSP Support
         configs.unpoly_lsp = {
           default_config = {
             cmd = {unpoly_lsp_exe},
-            file_types = {'eruby', 'html'},
+            filetypes = {'eruby', 'html'},
             root_dir = function(fname)
               return lspconfig.util.find_git_ancestor(fname)
             end,
