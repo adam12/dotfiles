@@ -21,6 +21,9 @@ return { -- LSP Support
       end,
     })
 
+    -- Herb is defined in lsp/herb.lua
+    vim.lsp.enable({'herb'})
+
     require('mason').setup({})
     require('mason-lspconfig').setup({
       ensure_installed = { "lua_ls" }
