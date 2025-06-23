@@ -123,3 +123,17 @@ _G.cr_action = function()
 end
 
 vim.keymap.set('i', '<CR>', 'v:lua._G.cr_action()', { expr = true })
+
+-- Prevent annoying Elixir LS message about formatter not being loaded
+local original_handler = vim.lsp.handlers['window/showMessage']
+
+-- Override with our custom handler
+vim.lsp.handlers['window/showMessage'] = function(err, result, ctx, config)
+  -- Skip messages about the formatter plugin not being loaded
+  if result.message:find('Formatter plugin Phoenix.LiveView.HTMLFormatter is not loaded and will be skipped.') then
+    return
+  end
+
+  -- Call the original handler for all other messages
+  return original_handler(err, result, ctx, config)
+end
