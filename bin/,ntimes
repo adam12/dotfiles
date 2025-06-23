@@ -1,0 +1,140 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+
+# Default options
+options = {
+  times: 1,
+  fail_fast: false
+}
+
+# Parse command line options
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options] command [args...]"
+
+  opts.on("-t", "--times N", Integer, "Number of times to run the command (default: 1)") do |n|
+    options[:times] = n
+  end
+
+  opts.on("-f", "--fail-fast", "Exit immediately if any command fails") do
+    options[:fail_fast] = true
+  end
+
+  opts.on("-h", "--help", "Show this help message") do
+    puts opts
+    exit
+  end
+end.parse!
+
+# Check if command was provided
+if ARGV.empty?
+  puts "Error: No command provided"
+  puts "Usage: #{$0} [options] command [args...]"
+  exit 1
+end
+
+# Store the command to run
+command = ARGV.join(' ')
+
+# Initialize counters
+success_count = 0
+failure_count = 0
+current_run = 0
+
+# Track child process PID for signal handling
+child_pid = nil
+interrupted = false
+
+# Handle Ctrl-C gracefully
+Signal.trap("INT") do
+  puts "\nInterrupted by user..."
+  interrupted = true
+  if child_pid
+    puts "Terminating running command (PID: #{child_pid})"
+    begin
+      Process.kill("TERM", child_pid)
+      # Give it a moment to terminate gracefully
+      sleep(0.5)
+      # Force kill if still running
+      Process.kill("KILL", child_pid) rescue nil
+    rescue Errno::ESRCH
+      # Process already terminated
+    end
+  end
+  # Don't exit here - let the main loop handle cleanup and summary
+end
+
+# Handle Ctrl-T (SIGINFO) to show current status
+Signal.trap("INFO") do
+  status = if child_pid
+    "Running command (PID: #{child_pid})"
+  else
+    "Between runs"
+  end
+
+  puts "\n--- STATUS ---"
+  puts "Progress: #{current_run}/#{options[:times]} runs completed"
+  puts "Success: #{success_count}, Failed: #{failure_count}"
+  puts "Current: #{status}"
+  puts "--- END STATUS ---"
+end rescue nil  # SIGINFO not available on all platforms
+
+puts "Running command #{options[:times]} time(s): #{command}"
+puts "Fail-fast mode: #{options[:fail_fast] ? 'enabled' : 'disabled'}"
+puts "-" * 50
+
+# Run the command N times
+(1..options[:times]).each do |i|
+  # Check if we were interrupted
+  break if interrupted
+
+  current_run = i - 1  # Update current run counter
+  puts "\n=== Run #{i}/#{options[:times]} ==="
+
+  # Execute the command and capture exit status
+  child_pid = spawn(command)
+  Process.wait(child_pid)
+  exit_status = $?.exitstatus
+  child_pid = nil
+
+  # Check if we were interrupted during command execution
+  if interrupted
+    puts "Command interrupted"
+    break
+  end
+
+  if exit_status == 0
+    success_count += 1
+    puts "✓ Run #{i} completed successfully"
+  else
+    failure_count += 1
+    puts "✗ Run #{i} failed with exit code #{exit_status}"
+
+    if options[:fail_fast]
+      puts "\nFail-fast mode enabled. Stopping execution."
+      break
+    end
+  end
+
+  current_run = i  # Update to reflect completed run
+end
+
+# Print summary
+puts "\n" + "=" * 50
+puts "SUMMARY"
+puts "=" * 50
+puts "Total runs: #{success_count + failure_count}/#{options[:times]}"
+puts "Successful: #{success_count}"
+puts "Failed: #{failure_count}"
+
+# Exit with appropriate code
+if interrupted
+  puts "\nExecution interrupted by user."
+  exit 130
+elsif failure_count > 0
+  puts "\nSome commands failed."
+  exit 1
+else
+  puts "\nAll commands completed successfully."
+  exit 0
+end
