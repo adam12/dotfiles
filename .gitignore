@@ -84,3 +84,7 @@
 /go
 /src
 /tmp
+
+/.config/mise/config.local.toml
+/.config/github-copilot/
+/.aider
