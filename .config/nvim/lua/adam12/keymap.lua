@@ -52,5 +52,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration', buffer = args.buf })
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementation', buffer = args.buf })
     vim.keymap.set('n', 'go', vim.lsp.buf.type_definition, { desc = 'Go to type definition', buffer = args.buf })
+
+    vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, { desc = 'Run Codelens' })
   end
  })
