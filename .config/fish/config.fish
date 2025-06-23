@@ -10,11 +10,6 @@ set -U --export ERL_AFLAGS "-kernel shell_history enabled"
 alias vim="nvim"
 alias whois="$(brew --prefix whois)/bin/whois"
 alias weather="curl wttr.in/st.catharines,ca"
-# alias referral="~/bin/referral"
-# alias referral="~/.local/share/mise/installs/ruby/latest/bin/referral"
-# alias kamal="~/.local/share/mise/shims/kamal"
-#alias referral="mise x ruby@latest -- gem exec referral"
-#alias kamal="mise x ruby@latest -- gem exec kamal"
 
 fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
