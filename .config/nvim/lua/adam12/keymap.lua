@@ -37,7 +37,9 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 -- vim.keymap.set('n', '<leader>ha', mark.add_file, { desc = 'Add Harpoon mark' })
 
 -- Make Oil work like Vinegar does
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+vim.keymap.set('n', '-', function() MiniFiles.open(vim.api.nvim_buf_get_name(0)) end, { desc = 'Open parent directory' })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',

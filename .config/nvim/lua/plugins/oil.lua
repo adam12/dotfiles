@@ -9,4 +9,5 @@ return {
   config = function(_, opts)
     require('oil').setup(opts)
   end,
+  enabled = false
 }

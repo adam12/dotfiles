@@ -17,6 +17,8 @@ return {
     -- Comment out code
     require('mini.comment').setup()
 
+    require('mini.files').setup()
+
     -- Popup clue/next key
     local miniclue = require('mini.clue')
     miniclue.setup({
