@@ -85,6 +85,15 @@
 /src
 /tmp
 
+/bin/expert
+
 /.config/mise/config.local.toml
 /.config/github-copilot/
 /.aider
+/.ansible
+/.claude
+/.claude.json
+/.claude.json.backup
+/.swiftpm
+/.webdrivers
+/.rubyenv
