@@ -13,6 +13,7 @@ alias weather="curl wttr.in/st.catharines,ca"
 
 fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
+fish_add_path $HOME/.local/share/bob/nvim-bin/
 
 # Configure local::lib for Perl
 #eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
