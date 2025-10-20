@@ -10,6 +10,7 @@ set -U --export ERL_AFLAGS "-kernel shell_history enabled"
 alias vim="nvim"
 alias whois="$(brew --prefix whois)/bin/whois"
 alias weather="curl wttr.in/st.catharines,ca"
+alias dotfiles="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 
 fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
@@ -26,5 +27,17 @@ if status is-interactive
             cd "$selected_dir"
             # nvim .
         end
+    end
+
+    # Enable dotfiles git mode
+    function df-mode
+        set -gx GIT_DIR $HOME/.dotfiles.git
+        set -gx GIT_WORK_TREE $HOME
+    end
+
+    # Disable dotfiles git mode
+    function df-mode-off
+        set -e GIT_DIR
+        set -e GIT_WORK_TREE
     end
 end
