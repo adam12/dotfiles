@@ -24,6 +24,9 @@ return { -- LSP Support
     -- Herb is defined in lsp/herb.lua
     vim.lsp.enable({'herb'})
 
+    -- Expert is defined in lsp/expert.lua
+    -- vim.lsp.enable('expert')
+
     require('mason').setup({})
     require('mason-lspconfig').setup({
       ensure_installed = { "lua_ls" }
