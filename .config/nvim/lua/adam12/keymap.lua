@@ -1,7 +1,7 @@
 vim.keymap.set('n', '<leader>p', function() MiniPick.builtin.files({ tool = 'git' }) end, {desc = 'Find files'})
 vim.keymap.set('n', '<c-p>', function() MiniPick.builtin.files({ tool = 'git' }) end, {desc = 'Find files'})
 vim.keymap.set('n', '<leader>fb', function() MiniPick.builtin.buffers() end, {desc = 'Find buffers'})
-vim.keymap.set('n', '<leader>ff', function() MiniPick.builtin.files({ tool = 'git' }) end, {desc = 'Find files'})
+vim.keymap.set('n', '<leader>ff', function() MiniPick.builtin.files() end, {desc = 'Find files'})
 vim.keymap.set('n', '<leader>fr', function() MiniExtra.pickers.registers() end, {desc = 'Find register'})
 vim.keymap.set('n', '<leader>fs', function() MiniExtra.pickers.lsp({scope = 'workspace_symbol'}) end, {desc = 'Find symbol'})
 
