@@ -15,6 +15,7 @@
 [rebase]
 	autosquash = true
 	updateRefs = true
+	# autoStash = true
 [ghq]
 	root = /Users/adam/code
 [log]
@@ -34,12 +35,10 @@
 	recurseSubmodules = on-demand
 [submodule]
 	recurse = true
-[init]
-	defaultBranch = main
 [branch]
 	sort = -committerdate
 [merge]
-	conflictstyle = zdiff3
+	conflictStyle = zdiff3
 
 # use nvim for mergetool
 [mergetool "nvim"]
@@ -48,3 +47,6 @@
         tool = nvim
 [mergetool]
         prompt = false
+	keepBackup = false
+[init]
+	defaultBranch = main
