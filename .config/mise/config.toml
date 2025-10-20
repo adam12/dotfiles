@@ -8,6 +8,9 @@ bun = "latest"
 erlang = "27"
 elixir = "1.18.0"
 yarn = "latest"
+"npm:@herb-tools/language-server" = "0.5.0"
+"npm:@mermaid-js/mermaid-cli" = "latest"
+watchexec = "latest"
 
 [settings]
 experimental = true
