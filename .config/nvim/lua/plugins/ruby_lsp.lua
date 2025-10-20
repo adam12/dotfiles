@@ -6,5 +6,14 @@ return {
     -- auto_install = true,
     use_launcher = false,
     autodetect_tools = true,
+    lspconfig = {
+      init_options = {
+        addonSettings = {
+          ["Ruby LSP Rails"] = {
+            enablePendingMigrationsPrompt = false,
+          },
+        },
+      },
+    },
   },
 }
