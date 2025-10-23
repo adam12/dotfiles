@@ -54,6 +54,7 @@
 /.vimrc
 /.wget-hsts
 /.yarnrc
+/.zcompdump
 /.zprofile
 /.zshenv
 /.zshrc
