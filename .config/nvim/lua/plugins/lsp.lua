@@ -91,7 +91,8 @@ return { -- LSP Support
                 globals = {
                   "vim",
                   "MiniPick",
-                  "MiniExtra"
+                  "MiniExtra",
+                  'MiniFiles'
                 }
               }
             }
