@@ -1,3 +1,5 @@
+local clipboard = require('adam12/clipboard')
+
 vim.keymap.set('n', '<leader>p', function() MiniPick.builtin.files({ tool = 'git' }) end, {desc = 'Find files'})
 vim.keymap.set('n', '<c-p>', function() MiniPick.builtin.files({ tool = 'git' }) end, {desc = 'Find files'})
 vim.keymap.set('n', '<leader>fb', function() MiniPick.builtin.buffers() end, {desc = 'Find buffers'})
@@ -56,3 +58,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>cl', vim.lsp.codelens.run, { desc = 'Run Codelens' })
   end
  })
+
+vim.keymap.set('n', '<leader>yfl', clipboard.copy_file_line, {
+  desc = 'Copy file:lineno to clipboard',
+  noremap = true,
+  silent = true
+})
