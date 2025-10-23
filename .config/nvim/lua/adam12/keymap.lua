@@ -11,7 +11,7 @@ vim.keymap.set('n', '<leader>fs', function() MiniExtra.pickers.lsp({scope = 'wor
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap <Esc> to exit terminal mode
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', {})
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', {})
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
