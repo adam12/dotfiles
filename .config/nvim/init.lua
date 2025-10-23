@@ -73,6 +73,10 @@ vim.opt.foldlevelstart = 99
 -- Create folds only for some number of nested levels
 vim.opt.foldnestmax = 10
 
+-- Case insensitive searching unless uppercase letters are used
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- Set background of wezterm to match current background colour
 vim.api.nvim_create_autocmd({ "ColorScheme", "UIEnter", "VimResume" }, {
   group = vim.api.nvim_create_augroup("set_terminal_bg", {}),
