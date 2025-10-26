@@ -27,6 +27,9 @@ return { -- LSP Support
     -- Expert is defined in lsp/expert.lua
     -- vim.lsp.enable('expert')
 
+    -- Unpoly is defined in lsp/unpoly.lua
+    vim.lsp.enable({'unpoly'})
+
     require('mason').setup({})
     require('mason-lspconfig').setup({
       ensure_installed = { "lua_ls" }
@@ -50,24 +53,7 @@ return { -- LSP Support
 
     -- lspconfig.solargraph.setup({})
     -- lspconfig.standardrb.setup({})
-
-    local unpoly_lsp_exe = os.getenv('HOME') .. '/go/bin/unpoly-lsp'
-    if vim.fn.executable(unpoly_lsp_exe) == 1 then
-      if not configs.unpoly_lsp then
-        configs.unpoly_lsp = {
-          default_config = {
-            cmd = {unpoly_lsp_exe},
-            filetypes = {'eruby', 'html'},
-            root_dir = function(fname)
-              return lspconfig.util.find_git_ancestor(fname)
-            end,
-            settings = {},
-          }
-        }
-      end
-
-      lspconfig.unpoly_lsp.setup({})
-    end
+    -- lspconfig.stylua.setup({})
 
     require('mason-lspconfig').setup_handlers {
       function(server_name) -- default handler
