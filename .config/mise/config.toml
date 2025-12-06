@@ -13,6 +13,7 @@ yarn = "latest"
 "npm:@github/copilot" = "latest"
 watchexec = "latest"
 node = "latest"
+"gem:referral" = "0.0.5"
 gleam = "1.13.0"
 
 [settings]
