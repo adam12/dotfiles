@@ -21,24 +21,37 @@ return { -- LSP Support
       end,
     })
 
-    -- Herb is defined in lsp/herb.lua
-    vim.lsp.enable({'herb'})
-
-    -- Expert is defined in lsp/expert.lua
-    -- vim.lsp.enable('expert')
-
-    -- Unpoly is defined in lsp/unpoly.lua
-    vim.lsp.enable({'unpoly'})
-
     require('mason').setup({})
     require('mason-lspconfig').setup({
       ensure_installed = { "lua_ls" }
     })
 
-    local lspconfig = require('lspconfig')
-    local configs = require('lspconfig.configs')
+    -- Configure LSP servers using vim.lsp.config()
+    -- Configs in lsp/*.lua are auto-discovered
 
-    -- lspconfig.ruby_lsp.setup({
+    vim.lsp.config('ts_ls', {
+      init_options = {
+        -- prevent extra period being inserted
+        completionDisablefilterText = false,
+      },
+    })
+
+    vim.lsp.config('lua_ls', {
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = {
+              "vim",
+              "MiniPick",
+              "MiniExtra",
+              'MiniFiles'
+            }
+          }
+        }
+      }
+    })
+
+    -- vim.lsp.config('ruby_lsp', {
     --   cmd = { 'ruby-lsp', '--debug', },
     --   init_options = {
     --     formatter = 'standard',
@@ -47,44 +60,19 @@ return { -- LSP Support
     --   },
     -- })
 
-    -- lspconfig.steep.setup({
-    --   cmd = { 'steep', 'langserver', '--log-level=warn' }, -- not sure warn even does anything
+    -- vim.lsp.config('steep', {
+    --   cmd = { 'steep', 'langserver', '--log-level=warn' },
     -- })
 
-    -- lspconfig.solargraph.setup({})
-    -- lspconfig.standardrb.setup({})
-    -- lspconfig.stylua.setup({})
+    -- Enable all LSP servers
+    -- Custom configs: herb, expert, unpoly are in lsp/*.lua
+    vim.lsp.enable('herb')
+    vim.lsp.enable('unpoly')
+    vim.lsp.enable('gleam')
+    -- vim.lsp.enable('expert')
 
-    require('mason-lspconfig').setup_handlers {
-      function(server_name) -- default handler
-        require('lspconfig')[server_name].setup({})
-      end,
-
-      ['ts_ls'] = function()
-        lspconfig.ts_ls.setup({
-          init_options = {
-            -- prevent extra period being inserted
-            completionDisablefilterText = false,
-          },
-        })
-      end,
-
-      ['lua_ls'] = function()
-        lspconfig.lua_ls.setup({
-          settings = {
-            Lua = {
-              diagnostics = {
-                globals = {
-                  "vim",
-                  "MiniPick",
-                  "MiniExtra",
-                  'MiniFiles'
-                }
-              }
-            }
-          }
-        })
-      end,
-    }
+    -- Enable Mason-installed servers
+    vim.lsp.enable('lua_ls')
+    vim.lsp.enable('ts_ls')
   end
 }
