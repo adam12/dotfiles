@@ -1,3 +1,6 @@
 return {
-  'sindrets/diffview.nvim'
+  'sindrets/diffview.nvim',
+  opts = {
+    use_icons = false,
+  }
 }
