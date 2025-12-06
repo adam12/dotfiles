@@ -22,53 +22,14 @@ return { -- LSP Support
 
     require('mason').setup({})
 
-    -- Configure LSP servers using vim.lsp.config()
-    -- Configs in lsp/*.lua are auto-discovered
-
-    vim.lsp.config('ts_ls', {
-      init_options = {
-        -- prevent extra period being inserted
-        completionDisablefilterText = false,
-      },
-    })
-
-    vim.lsp.config('lua_ls', {
-      settings = {
-        Lua = {
-          diagnostics = {
-            globals = {
-              "vim",
-              "MiniPick",
-              "MiniExtra",
-              'MiniFiles'
-            }
-          }
-        }
-      }
-    })
-
-    -- vim.lsp.config('ruby_lsp', {
-    --   cmd = { 'ruby-lsp', '--debug', },
-    --   init_options = {
-    --     formatter = 'standard',
-    --     linters = { 'standard' },
-    --     experimentalFeaturesEnabled = true,
-    --   },
-    -- })
-
-    -- vim.lsp.config('steep', {
-    --   cmd = { 'steep', 'langserver', '--log-level=warn' },
-    -- })
-
-    -- Enable all LSP servers
-    -- Custom configs: herb, expert, unpoly are in lsp/*.lua
+    -- Configs live in lsp/*.lua and are auto-discovered
     vim.lsp.enable('herb')
     vim.lsp.enable('unpoly')
     vim.lsp.enable('gleam')
-    -- vim.lsp.enable('expert')
-
-    -- Enable Mason-installed servers
     vim.lsp.enable('lua_ls')
     vim.lsp.enable('ts_ls')
+    -- vim.lsp.enable('expert')
+    -- vim.lsp.enable('ruby_lsp')
+    -- vim.lsp.enable('steep')
   end
 }
