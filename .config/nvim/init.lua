@@ -62,7 +62,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.exrc = true
 
 -- Set 'indent' foling method
-vim.opt.foldmethod = 'indent'
+-- vim.opt.foldmethod = 'expr'
 
 -- Disable all folds except top ones
 -- vim.opt.foldlevel = 1
