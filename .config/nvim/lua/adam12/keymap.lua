@@ -9,6 +9,8 @@ vim.keymap.set('n', '<leader>fs', function() MiniExtra.pickers.lsp({scope = 'wor
 
 vim.keymap.set('n', '<leader>sk', function() MiniExtra.pickers.keymaps() end, {desc = 'Show keymaps'})
 
+vim.keymap.set('n', '<leader>do', function() MiniDiff.toggle_overlay() end, {desc = 'Toggle diff overlay'})
+
 -- Make <space> leader function more sane
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
