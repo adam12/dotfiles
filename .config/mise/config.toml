@@ -12,6 +12,7 @@ yarn = "latest"
 "npm:@mermaid-js/mermaid-cli" = "latest"
 "npm:@github/copilot" = "latest"
 watchexec = "latest"
+node = "latest"
 
 [settings]
 experimental = true
