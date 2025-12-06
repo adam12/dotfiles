@@ -18,6 +18,7 @@ gleam = "1.13.0"
 
 [settings]
 experimental = true
+idiomatic_version_file_enable_tools = ["ruby"]
 
 [env]
 OVERMIND_SKIP_ENV = "true"
