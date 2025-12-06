@@ -2,8 +2,8 @@ local M = {}
 
 -- Function to copy file:lineno to clipboard
 M.copy_file_line = function ()
-  local file = vim.fn.expand('%') -- Get relative file path
-  local line = vim.fn.line('.')   -- Get current line number
+  local file = vim.fn.expand('%:.') -- Get relative file path
+  local line = vim.fn.line('.') -- Get current line number
   local text = file .. ':' .. line
 
   -- Copy to system clipboard
