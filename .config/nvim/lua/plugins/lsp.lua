@@ -2,7 +2,6 @@ return { -- LSP Support
   'neovim/nvim-lspconfig',
   dependencies = {
     { 'williamboman/mason.nvim' },
-    { 'williamboman/mason-lspconfig.nvim' },
   },
   init = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -22,9 +21,6 @@ return { -- LSP Support
     })
 
     require('mason').setup({})
-    require('mason-lspconfig').setup({
-      ensure_installed = { "lua_ls" }
-    })
 
     -- Configure LSP servers using vim.lsp.config()
     -- Configs in lsp/*.lua are auto-discovered
