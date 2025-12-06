@@ -7,6 +7,8 @@ vim.keymap.set('n', '<leader>ff', function() MiniPick.builtin.files() end, {desc
 vim.keymap.set('n', '<leader>fr', function() MiniExtra.pickers.registers() end, {desc = 'Find register'})
 vim.keymap.set('n', '<leader>fs', function() MiniExtra.pickers.lsp({scope = 'workspace_symbol'}) end, {desc = 'Find symbol'})
 
+vim.keymap.set('n', '<leader>sk', function() MiniExtra.pickers.keymaps() end, {desc = 'Show keymaps'})
+
 -- Make <space> leader function more sane
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
