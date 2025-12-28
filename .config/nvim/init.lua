@@ -22,6 +22,7 @@ require('lazy').setup('plugins')
 
 require('adam12.keymap')
 require('adam12.autocommands')
+require('adam12.claude-commit').setup()
 
 -- Enable line numbers
 vim.opt.number = true
