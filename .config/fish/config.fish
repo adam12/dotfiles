@@ -1,5 +1,4 @@
 /opt/homebrew/bin/brew shellenv | source
-direnv hook fish | source
 mise activate fish | source
 
 set -U --export EDITOR nvim
