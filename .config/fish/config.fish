@@ -11,6 +11,7 @@ alias vim="nvim"
 alias whois="$(brew --prefix whois)/bin/whois"
 alias weather="curl wttr.in/st.catharines,ca"
 alias dotfiles="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
+alias vim-config="nvim ~/.config/nvim/"
 
 fish_add_path $HOME/bin
 fish_add_path $HOME/.local/bin
