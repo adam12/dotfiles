@@ -38,4 +38,7 @@ if status is-interactive
         set -e GIT_DIR
         set -e GIT_WORK_TREE
     end
+else
+    # Let's make sure shims are in PATH for non-interactive shells
+    fish_add_path --prepend --global $HOME/.local/share/mise/shims
 end
