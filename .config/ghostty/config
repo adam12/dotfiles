@@ -1,0 +1,7 @@
+theme = Catppuccin Mocha
+font-family = "JetBrains Mono"
+font-size = 13
+macos-titlebar-style = "tabs"
+keybind = shift+enter=text:\n
+auto-update-channel = tip
+bell-features = system
