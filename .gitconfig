@@ -50,3 +50,5 @@
 	keepBackup = false
 [init]
 	defaultBranch = main
+[absorb]
+	maxStack = 30
