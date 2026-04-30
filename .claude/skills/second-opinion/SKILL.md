@@ -34,12 +34,12 @@ Then pick replacements: prefer different providers, prefer flagship over mini/ha
 Run the three `copilot -p` calls in a single message (parallel Bash tool calls):
 
 ```fish
-copilot -p "<prompt>" --model gpt-5.4 --available-tools view,grep,glob
-copilot -p "<prompt>" --model gpt-5.3-codex --available-tools view,grep,glob
-copilot -p "<prompt>" --model claude-sonnet-4.6 --available-tools view,grep,glob
+copilot -p "<prompt>" --model gpt-5.4 --available-tools view,rg,glob
+copilot -p "<prompt>" --model gpt-5.3-codex --available-tools view,rg,glob
+copilot -p "<prompt>" --model claude-sonnet-4.6 --available-tools view,rg,glob
 ```
 
-`--available-tools view,grep,glob` restricts them to read-only tools.
+`--available-tools view,rg,glob` restricts them to read-only tools.
 
 ### 3. Present and synthesize
 
