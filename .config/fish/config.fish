@@ -42,3 +42,7 @@ else
     # Let's make sure shims are in PATH for non-interactive shells
     fish_add_path --prepend --global $HOME/.local/share/mise/shims
 end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
