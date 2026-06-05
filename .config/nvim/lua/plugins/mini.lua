@@ -134,10 +134,10 @@ return {
 
     require('mini.visits').setup()
 
-    local notify = require('mini.notify')
-    notify.setup()
-
-    vim.notify = notify.make_notify()
+    -- local notify = require('mini.notify')
+    -- notify.setup()
+    --
+    -- vim.notify = notify.make_notify()
 
     require('mini.jump').setup()
     require('mini.jump2d').setup()
