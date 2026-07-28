@@ -9,7 +9,6 @@ set -g fish_greeting # No fish greeting
 
 alias vim="nvim"
 alias whois="$(brew --prefix whois)/bin/whois"
-alias weather="curl wttr.in/st.catharines,ca"
 alias dotfiles="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias vim-config="nvim ~/.config/nvim/"
 
