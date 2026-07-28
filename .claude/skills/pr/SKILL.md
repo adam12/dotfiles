@@ -7,14 +7,15 @@ description: Create a pull request for the current branch
 ## Context
 
 - Current branch: !`git branch --show-current`
-- Recent commits: !`git log --oneline origin/main..HEAD`
-- Diff stats: !`git diff --stat origin/main...HEAD`
+- Base branch: !`git symbolic-ref -q --short refs/remotes/origin/HEAD 2>/dev/null || git rev-parse -q --verify --abbrev-ref origin/main 2>/dev/null || echo origin/master`
+- Recent commits: !`git log --oneline $(git symbolic-ref -q --short refs/remotes/origin/HEAD 2>/dev/null || git rev-parse -q --verify --abbrev-ref origin/main 2>/dev/null || echo origin/master)..HEAD 2>/dev/null || echo "(could not determine base branch)"`
+- Diff stats: !`git diff --stat $(git symbolic-ref -q --short refs/remotes/origin/HEAD 2>/dev/null || git rev-parse -q --verify --abbrev-ref origin/main 2>/dev/null || echo origin/master)...HEAD 2>/dev/null || echo "(could not determine base branch)"`
 
 ## Your Task
 
 Create a pull request for the current branch.
 
-1. First, determine the correct base branch by running `git symbolic-ref refs/remotes/origin/HEAD --short` (fall back to `origin/main` if that fails)
+1. Use the base branch from the Context above. If it could not be determined, run `git symbolic-ref -q --short refs/remotes/origin/HEAD`, falling back to whichever of `origin/main` or `origin/master` exists
 2. Run `git diff <base>...HEAD` to review the full diff (the stats above are just a summary)
 3. Review the commits and diff to understand ALL changes on this branch
 4. Draft the PR title and body, then **present them to the user for approval before doing anything else**. Do NOT push or create the PR until the user approves.
