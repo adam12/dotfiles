@@ -55,6 +55,7 @@ If the diff mixes unrelated concerns, make multiple focused commits in sequence.
 - Mirror the repo's existing style from `git log`.
 - Focus on **why**, not what — the diff shows what.
 - Subject in imperative mood if that's the repo convention.
+- Do **not** add issue-closing trailers (`Closes #N`, `Fixes #N`, `Resolves #N`) — issue linkage belongs in the PR, not the commit.
 - Pass the message via HEREDOC to preserve formatting:
 
 ```
@@ -65,6 +66,12 @@ Optional body explaining why.
 EOF
 )"
 ```
+
+### Get approval before committing
+
+**Always show the drafted commit message (subject + body) to the user and wait for their approval before running `git commit`.** Do not commit on the first turn — present the message, then commit once they confirm. If splitting into multiple commits, show all the planned messages up front.
+
+If the user edits or rewords the message, use their version.
 
 ### After committing
 
@@ -97,4 +104,5 @@ Stop and confirm with the user before committing if any of these apply:
 - Never push.
 - Never `--amend` a commit you didn't just create in this turn.
 - Never `--no-verify` to skip hooks.
+- Never run `git commit` without first showing the message and getting the user's approval.
 - Never commit files the user didn't touch in this session without flagging them first.
