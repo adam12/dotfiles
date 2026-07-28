@@ -7,33 +7,14 @@ return {
   },
   enabled = true,
   build = ':TSUpdate',
-  config = true,
-  -- config = function()
-  --   require 'nvim-treesitter.configs'.setup {
-  --     ensure_installed = {
-  --       'css',
-  --       'embedded_template',
-  --       'javascript',
-  --       'lua',
-  --       'ruby',
-  --       'typescript',
-  --       'vim',
-  --     },
-  --     auto_install = false,
-  --     highlight = {
-  --       enable = true,
-  --       -- needed for indentation in vim-ruby to work
-  --       additional_vim_regex_highlighting = { 'ruby', 'elixir' },
-  --       disable = { 'perl' },
-  --     },
-  --     indent = {
-  --       enable = true,
-  --       disable = { 'ruby', 'perl', 'elixir' },
-  --     },
-  --     endwise = {
-  --       enable = true,
-  --       disable = { 'ruby', 'perl' },
-  --     },
-  --   }
-  -- end,
+  config = function()
+    require('nvim-treesitter').setup {}
+    -- main branch no longer starts highlighting itself; opt in per filetype
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'elixir' },
+      callback = function()
+        vim.treesitter.start()
+      end,
+    })
+  end,
 }
