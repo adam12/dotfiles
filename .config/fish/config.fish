@@ -11,6 +11,7 @@ alias vim="nvim"
 alias whois="$(brew --prefix whois)/bin/whois"
 alias dotfiles="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME"
 alias vim-config="nvim ~/.config/nvim/"
+alias hdw="hunk diff --watch"
 
 fish_add_path --move --prepend $HOME/bin
 fish_add_path --move --prepend $HOME/.local/bin
