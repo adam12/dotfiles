@@ -1,3 +1,7 @@
+---
+description: Update all outdated dependencies in an Elixir project, handling both safe updates and breaking changes. Use when the user wants to update deps, run mix hex.outdated, or upgrade Elixir dependencies.
+---
+
 # Update Elixir Dependencies
 
 Update all outdated dependencies in this Elixir project, handling both safe updates and breaking changes.
