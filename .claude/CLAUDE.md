@@ -1,3 +1,5 @@
+Output tokens are precious, be succinct in your responses. Use ASD-STE100 simplified technical english.
+
 ## Shell
 - The Bash tool executes under bash/zsh — use POSIX-compatible syntax (`&&`, `||`, `if … ; then … ; fi`, `command -v`). Do NOT use fish-only syntax (`; and`, `; or`, `type -q`, `if … end`).
 
