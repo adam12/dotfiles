@@ -1,25 +1,7 @@
 #!/bin/bash
+# Managed by mise bootstrap — see ~/.config/mise/config.toml [bootstrap.macos.defaults]
+# Run `mise bootstrap --only macos-defaults` to apply these settings.
 
-# Always show hidden files
-defaults write com.apple.finder AppleShowAllFiles -boolean true
+set -euo pipefail
 
-# Faster key repeat
-defaults write -g InitialKeyRepeat -int 20 # 10 is too extreme
-defaults write -g KeyRepeat -int 2 # 1 is too extreme
-
-# Disable press-and-hold which allows you to switch keys if you hold it too long
-defaults write -g ApplePressAndHoldEnabled -bool false
-
-# Hide dock automatically
-defaults write com.apple.dock autohide -bool true
-
-# Show the ~/Library folder
-chflags nohidden ~/Library
-
-# Show the /Volumes folder
-chflags nohidden /Volumes
-
-# Restart services
-killall Dock
-killall SystemUIServer
-killall Finder
+mise bootstrap --only macos-defaults "$@"

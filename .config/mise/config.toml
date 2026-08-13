@@ -24,3 +24,20 @@ OVERMIND_SKIP_ENV = "true"
 OVERMIND_PROCFILE = "Procfile.dev"
 OVERMIND_NO_PORT = 1
 PGGSSENCMODE = "disable"
+
+[bootstrap.macos.finder]
+show_all_files = true
+
+[bootstrap.macos.keyboard]
+initial_key_repeat = 20
+key_repeat = 2
+press_and_hold = false
+
+[bootstrap.macos.dock]
+autohide = true
+
+[bootstrap.hooks]
+post-defaults = [
+  "chflags nohidden ~/Library",
+  "chflags nohidden /Volumes",
+]
